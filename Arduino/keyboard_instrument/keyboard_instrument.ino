@@ -1,13 +1,4 @@
-int buttons[6] = {2, 0, 0, 0, 0, 0};
-
-int notes[] = {262,294,330,349};
-void setup() {
-  Serial.begin(9600);
-}
-
-void loop() {
-  int key_val = analogRead(A0);
-  Serial.println(key_val);
+void play(){
   if(key_val == 1023){
     tone(8, notes[0]);
   }
@@ -23,4 +14,14 @@ void loop() {
   else{
     noTone(8);
   }
+}
+int notes[] = {262,294,330,349};
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  int key_val = analogRead(A0);
+  Serial.println(key_val);
+  
 }

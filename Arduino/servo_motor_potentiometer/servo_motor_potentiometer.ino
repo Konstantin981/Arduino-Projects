@@ -10,11 +10,7 @@ void setup() {
 
 void loop() {
   pot_val = analogRead(pot_pin);
-  Serial.print("potVal: ");
-  Serial.print(pot_val);
   angle = map(pot_val, 0, 1023, 0, 179);
-  Serial.print(", angle: ");
-  Serial.println(angle);
   myServo.write(angle);
   delay(15);
 }

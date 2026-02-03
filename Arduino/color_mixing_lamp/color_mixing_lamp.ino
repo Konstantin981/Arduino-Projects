@@ -1,3 +1,16 @@
+void read_values(){
+   red_sensor_value = analogRead(red_sensor_pin);
+  delay(5);
+  blue_sensor_value = analogRead(blue_sensor_pin);
+  delay(5);
+  green_sensor_value = analogRead(green_sensor_pin);
+}
+void output(){
+  analogWrite(red_led_pin, red_value);
+  analogWrite(green_led_pin, green_value);
+  analogWrite(blue_led_pin, blue_value);
+}
+
 const int green_led_pin = 9;
 const int red_led_pin = 10;
 const int blue_led_pin = 11;
@@ -22,27 +35,6 @@ void setup() {
 }
 
 void loop() {
-  red_sensor_value = analogRead(red_sensor_pin);
-  delay(5);
-  blue_sensor_value = analogRead(blue_sensor_pin);
-  delay(5);
-  green_sensor_value = analogRead(green_sensor_pin);
-  Serial.print("Raw sensor values \t Red:");
-  Serial.print(red_sensor_value);
-  Serial.print("\t Green:");
-  Serial.print(green_sensor_value);
-  Serial.print("\t Blue");
-  Serial.println(blue_sensor_value);
-  red_value = red_sensor_value/4;
-  green_value = green_sensor_value/4;
-  blue_value = blue_sensor_value/4;
-  Serial.print("Mapped sensor values \t Red:");
-  Serial.print(red_value);
-  Serial.print("\t Green:");
-  Serial.print(green_value);
-  Serial.print("\t Blue");
-  Serial.println(blue_value);
-  analogWrite(red_led_pin, red_value);
-  analogWrite(green_led_pin, green_value);
-  analogWrite(blue_led_pin, blue_value);
+  read_values;
+  output;
 }
